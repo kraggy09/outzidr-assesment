@@ -21,7 +21,7 @@ app.use('/api/cards', cardRoutes);
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {
-        origin: "*",
+        origin: process.env.CLIENT_URL || "*",
         methods: ["GET", "POST", "PUT", "DELETE"]
     }
 });
