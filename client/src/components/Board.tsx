@@ -194,7 +194,7 @@ const Board: React.FC = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [cardToDelete, setCardToDelete] = useState<string | null>(null);
 
-  const { role, setRole } = useAuth();
+  const { role } = useAuth();
   const { theme, toggleTheme } = useThemeStore();
 
   const fetchCards = async () => {
