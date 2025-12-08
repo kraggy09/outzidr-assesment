@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useAuth } from "../context/AuthContext";
 import type { ICard, IColumn } from "../types";
 
 const Overlay = styled.div`
@@ -248,6 +249,10 @@ const CardModal: React.FC<CardModalProps> = ({
   initialData,
   columns,
 }) => {
+  const { role } = useAuth();
+
+  if (role !== "Editor") return null;
+
   const [formData, setFormData] = useState<Partial<ICard>>({
     title: "",
     description: "",
